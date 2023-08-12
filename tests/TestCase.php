@@ -2,9 +2,9 @@
 
 namespace Elsayed85\Gitir\Tests;
 
+use Elsayed85\Gitir\GitirServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Elsayed85\Gitir\GitirServiceProvider;
 
 class TestCase extends Orchestra
 {
