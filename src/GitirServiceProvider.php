@@ -4,7 +4,6 @@ namespace Elsayed85\Gitir;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Elsayed85\Gitir\Commands\GitirCommand;
 
 class GitirServiceProvider extends PackageServiceProvider
 {
