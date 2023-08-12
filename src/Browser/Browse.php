@@ -34,11 +34,18 @@ class Browse
 
     public function get($url, $data = [])
     {
+        if(filter_var($url, FILTER_VALIDATE_URL)){
+            return $this->crawler->request('GET', $url, $data);
+        }
+
         return $this->crawler->request('GET', $this->base_url.$url, $data);
     }
 
     public function post($url, $data = [])
     {
+        if(filter_var($url, FILTER_VALIDATE_URL)){
+            return $this->crawler->request('POST', $url, $data);
+        }
         return $this->crawler->request('POST', $this->base_url.$url, $data);
     }
 

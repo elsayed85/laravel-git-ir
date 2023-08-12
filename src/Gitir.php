@@ -39,7 +39,6 @@ class Gitir
     public function course(Course $course)
     {
         $browse = Browse::get($course->url)->filter("main");
-
         $sections = $browse->filter("div.course-lectures")->each(function($node){
             $header = $node->filter(".course-lecture-header h2")->text("");
             $lectures = $node->filter(".course-lecture-list .list-group a")->each(function($a){
@@ -61,7 +60,6 @@ class Gitir
                 "lectures" => $lectures
             ];
         });
-
         $course->sections = $sections;
 
         return $course;
