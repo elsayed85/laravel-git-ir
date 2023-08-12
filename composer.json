@@ -34,8 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Elsayed85\\Gitir\\": "src/",
-            "Elsayed85\\Gitir\\Database\\Factories\\": "database/factories/"
+            "Elsayed85\\Gitir\\": "src/"
         }
     },
     "autoload-dev": {
