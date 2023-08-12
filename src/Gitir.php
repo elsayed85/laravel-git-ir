@@ -36,9 +36,9 @@ class Gitir
         return Collection::make($courses);
     }
 
-    public function course(Course $course)
+    public function course($url)
     {
-        $browse = Browse::get($course->url)->filter("main");
+        $browse = Browse::get($url)->filter("main");
 
         $sections = $browse->filter("div.course-lectures")->each(function($node){
             $header = $node->filter(".course-lecture-header h2")->text("");
@@ -62,8 +62,6 @@ class Gitir
             ];
         });
 
-        $course->sections = $sections;
-
-        return $course;
+        return $sections;
     }
 }

@@ -16,6 +16,7 @@ class GitirServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-git-ir')
+            ->hasRoute('web')
             ->hasConfigFile();
     }
 }

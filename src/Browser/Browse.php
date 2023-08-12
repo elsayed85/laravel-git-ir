@@ -2,6 +2,7 @@
 
 namespace Elsayed85\Gitir\Browser;
 
+use Illuminate\Support\Facades\Http;
 use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\HttpClient\HttpClient;
 
@@ -15,21 +16,14 @@ class Browse
     {
         $this->base_url = config('git-ir.base_url');
 
-        $this->crawler = new HttpBrowser(HttpClient::create([
+        $crawler = new HttpBrowser(HttpClient::create([
             'headers' => [
                 'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029. Safari/537.3',
                 'Accept-Language' => 'en-US,en;q=0.5',
-                'Cookie' => $this->loadCookies(),
             ],
         ]));
-    }
 
-    private function loadCookies()
-    {
-        $session_id = config('git-ir.cookie.sessionid');
-        $csrftoken = config('git-ir.cookie.csrftoken');
-
-        return "sessionid=$session_id; csrftoken=$csrftoken";
+        $this->crawler = $crawler;
     }
 
     public function get($url, $data = [])
